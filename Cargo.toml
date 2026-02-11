@@ -1,0 +1,24 @@
+[package]
+name = "character_counter"
+version = "0.1.0"
+edition = "2024"
+description = "A simple command-line character counter written in Rust"
+authors = ["Obot Obo<oboobotenefiok@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/oboobotenefiok/character_counter"
+readme = "README.md"
+keywords = ["cli", "counter", "character", "text", "utility"]
+categories = ["command-line-utilities", "text-processing"]
+
+
+[dependencies]
+# Nothing here bro :-)
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
