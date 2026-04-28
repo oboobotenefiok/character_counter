@@ -1,4 +1,4 @@
-use std::io;
+mod io_handler;
 
 fn main() {
     println!(
@@ -6,7 +6,7 @@ fn main() {
 Ignoring Whitespaces at edges! \n Make your first input. "
     );
 
-    let first_group = get_input();
+    let first_group = io_handler::get_input();
     
     // I'm doing this to avoid crashing when less than 11
 
@@ -20,7 +20,7 @@ Ignoring Whitespaces at edges! \n Make your first input. "
         //*1
     } );
     //I used a variable named preview before; this shortens it.
-    let second_group = get_input();
+    let second_group = io_handler::get_input();
 
     println!(
         "Good one bro! \n The result is: {}
@@ -28,13 +28,4 @@ Ignoring Whitespaces at edges! \n Make your first input. "
         first_group.len() + second_group.len() 
     // I called an add() function before but this shortens it.
     );
-}
-
-// I used two 'get input' logic before, now this one shortens it.
-fn get_input() -> String {
-    let mut input = String::new();
-    io::stdin()
-        .read_line(&mut input)
-        .expect("Failed to read input");
-    input.trim().to_string()
 }
