@@ -3,37 +3,38 @@ use std::io;
 fn main() {
     println!(
         "Welcome To Obot's First RUST Character Counter
-Ignoring Whitespaces! \n Make your first input. "
+Ignoring Whitespaces at edges! \n Make your first input. "
     );
 
-    let mut first_group = String::new();
-    io::stdin()
-        .read_line(&mut first_group)
-        .expect("Failed to read input");
-    first_group = first_group.trim().to_string();
+    let first_group = get_input();
     
     // I'm doing this to avoid crashing when less than 11
-    let preview = if first_group.len() > 10 {
-        format!("{}...", &first_group[..10])
-    } else {
-        first_group.clone()
-    };
 
-    println!("{} received, Thank You! Next Input?", preview);
-
-    let mut second_group = String::new();
-    io::stdin()
-        .read_line(&mut second_group)
-        .expect("Failed to read input");
-    second_group = second_group.trim().to_string();
+    println!("{} received, Thank You! Next Input?",
+    if first_group.len() > 10 {
+        &first_group[..10]
+        // *1 used format before, this shortens it.
+    }
+    else {
+        &first_group
+        //*1
+    } );
+    //I used a variable named preview before; this shortens it.
+    let second_group = get_input();
 
     println!(
         "Good one bro! \n The result is: {}
 \n Thanks for using my Rusty counter, bro!",
-        add(first_group, second_group)
+        first_group.len() + second_group.len() 
+    // I called an add() function before but this shortens it.
     );
 }
 
-fn add(x: String, y: String) -> usize {
-    x.len() + y.len()
+// I used two 'get input' logic before, now this one shortens it.
+fn get_input() -> String {
+    let mut input = String::new();
+    io::stdin()
+        .read_line(&mut input)
+        .expect("Failed to read input");
+    input.trim().to_string()
 }
